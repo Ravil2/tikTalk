@@ -1,12 +1,14 @@
-import ProfileCard from "./components/ProfileCard/ProfileCard"
+import ProfileCard from "./components/ProfileCard/ProfileCard";
 
 const App = () => {
   return (
     <div>
-      React
-      <ProfileCard />      
+      <ProfileCard />
+      <ProfileCard />
+      <ProfileCard />
+      <ProfileCard />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
