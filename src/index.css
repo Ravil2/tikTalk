@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --light-color: #fff;
+  --dark-color: #000;
+}
+
+body{
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
