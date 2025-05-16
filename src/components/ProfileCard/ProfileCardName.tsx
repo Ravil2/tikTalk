@@ -1,9 +1,9 @@
 import type { FC } from "react";
-import avatar from "../../assets/imgs/avatar.png";
-import type { UserData } from "./ProfileCard";
+import type { UserProfileData } from "../../api/interfaces";
+import { BASE_URL } from "../../api/api";
 
 interface ProfileCardNameProps {
-  user: UserData;
+  user: UserProfileData;
 }
 
 const ProfileCardName: FC<ProfileCardNameProps> = ({ user }) => {
@@ -11,7 +11,7 @@ const ProfileCardName: FC<ProfileCardNameProps> = ({ user }) => {
     <div className="grid grid-cols-[70px_1fr] gap-5">
       <img
         className="w-[70px] h-[70px] rounded-[50%]"
-        src={avatar}
+        src={`${BASE_URL}${user.avatarUrl}`}
         alt="avatar-image"
       />
       <div className="flex flex-col gap-2">

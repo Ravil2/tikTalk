@@ -4,9 +4,6 @@ const App = () => {
   return (
     <div>
       <ProfileCard />
-      <ProfileCard />
-      <ProfileCard />
-      <ProfileCard />
     </div>
   );
 };

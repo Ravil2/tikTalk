@@ -1,8 +1,8 @@
 import type { FC } from "react";
-import type { UserData } from "./ProfileCard";
+import type { UserProfileData } from "../../api/interfaces";
 
 interface IProfileInfoProps {
-  user: UserData;
+  user: UserProfileData;
 }
 
 const ProfileInfo: FC<IProfileInfoProps> = ({ user }) => {

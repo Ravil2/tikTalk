@@ -3,26 +3,14 @@ import ProfileCardName from "./ProfileCardName";
 import UButton from "../../UI/UButton/UButton";
 import ProfileSkills from "./ProfileSkills";
 import { useEffect, useState } from "react";
-
-export interface UserData {
-  id: number;
-  avatarUrl: string;
-  city: string;
-  description: string;
-  firstName: string;
-  lastName: string;
-  userName: string;
-  isActive: boolean;
-  stack: string[];
-}
+import type { UserProfileData } from "../../api/interfaces";
+import { ProfilesAPI } from "../../api/api";
 
 const ProfileCard = () => {
-  const [userData, setUserData] = useState<UserData[]>([]);
+  const [userData, setUserData] = useState<UserProfileData[]>([]);
 
   const fetcData = async () => {
-    await fetch("https://icherniakov.ru/yt-course/account/test_accounts")
-      .then((res) => res.json())
-      .then((data) => setUserData(data));
+    await ProfilesAPI.getProfiles().then((data) => setUserData(data));
   };
 
   useEffect(() => {
@@ -31,7 +19,7 @@ const ProfileCard = () => {
 
   return (
     <>
-      {userData.map((user: UserData) => (
+      {userData.map((user: UserProfileData) => (
         <div
           key={user.id}
           className="grid border border-white px-8 py-6 grid-cols-4 gap-8 mb-2"
@@ -39,9 +27,7 @@ const ProfileCard = () => {
           <ProfileCardName user={user} />
           <ProfileInfo user={user} />
           <ProfileSkills user={user} />
-          <div className="flex justify-end">
-            <UButton>Follow</UButton>
-          </div>
+          <UButton>Follow</UButton>
         </div>
       ))}
     </>
