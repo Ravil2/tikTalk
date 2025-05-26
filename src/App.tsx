@@ -1,12 +1,17 @@
 import { Route, Routes } from "react-router-dom";
-import ProfileCard from "./components/ProfileCard/ProfileCard";
-import Login from "./pages/Login";
+import Login from "./pages/Login/Login";
+import Profile from "./pages/Profiles/Profile";
+import LayoutComponent from "./layouts/LayoutComponent/LayoutComponent";
+import Search from "./pages/Search/Search";
 
 const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<ProfileCard />}></Route>
+        <Route path="/" element={<LayoutComponent />}>
+          <Route index path="/" element={<Search />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
+        </Route>
         <Route path="/login" element={<Login />}></Route>
       </Routes>
     </div>
