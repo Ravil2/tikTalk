@@ -1,5 +1,12 @@
+import { useAuth } from "../../context/AuthContext";
+
 const Sidebar = () => {
-  return <div>Sidebar</div>;
+  const auth = useAuth();
+  return (
+    <div>
+      <button onClick={auth.logout}>Logout</button>
+    </div>
+  );
 };
 
 export default Sidebar;

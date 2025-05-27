@@ -3,6 +3,9 @@ import UButton from "../../UI/UButton/UButton";
 import background from "../../assets/svg/Background.svg";
 import { useState } from "react";
 import star from "../../assets/svg/star.svg";
+import { authApi } from "../../api/api";
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -10,6 +13,8 @@ const Login = () => {
     password: "",
   });
 
+  const auth = useAuth();
+  const navigate = useNavigate();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setInputs((prev) => ({
@@ -20,7 +25,11 @@ const Login = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(inputs);
+    authApi.login(inputs).then((data) => {
+      auth.login(data.access_token);
+      navigate("/");
+    });
+    setInputs({ username: "", password: "" });
   };
 
   return (
