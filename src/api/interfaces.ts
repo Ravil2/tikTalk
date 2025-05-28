@@ -1,3 +1,8 @@
+export interface AuthResponse {
+  access_token: string;
+  refresh_token: string;
+}
+
 export interface UserProfileData {
   id: number;
   avatarUrl: string;

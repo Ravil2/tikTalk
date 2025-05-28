@@ -34,11 +34,7 @@ const Login = () => {
 
   return (
     <div className="grid grid-cols-[1fr_1fr] h-[100vh] items-center mx-[8%] gap-[40%] overflow-hidden">
-      <form
-        className="flex flex-col gap-5"
-        onSubmit={handleSubmit}
-        onChange={handleChange}
-      >
+      <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
         <h1 className="font-extrabold text-5xl mb-8">Вход</h1>
         <label>
           Telegram username
@@ -51,11 +47,13 @@ const Login = () => {
             placeholder="Введите логин"
             name="username"
             value={inputs.username}
+            onChange={handleChange}
           />
         </label>
         <label>
           Пароль
           <input
+            autoComplete="off"
             className="flex flex-col border border-white 
             rounded-[4px] pt-3 pr-12 pb-3 pl-5 
             w-full mt-1 mr-0 mb-3 ml-[1px] bg-[var(--dark-color)]
@@ -64,6 +62,7 @@ const Login = () => {
             placeholder="Введите пароль"
             name="password"
             value={inputs.password}
+            onChange={handleChange}
           />
         </label>
         <UButton className="w-full">Войти</UButton>
