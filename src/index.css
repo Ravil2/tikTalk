@@ -1,0 +1,35 @@
+@import "tailwindcss";
+@import "./fonts.css";
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: sans-serif;
+  }
+}
+
+:root {
+  --light-color: #fff;
+  --dark-color: #000;
+  --primary-color: #ae7aff;
+}
+
+body {
+  font-family: "JetBrains Mono", monospace;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+
