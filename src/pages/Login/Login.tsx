@@ -26,7 +26,7 @@ const Login = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     authApi.login(inputs).then((data) => {
-      auth.login(data.access_token);
+      auth.login(data);
       navigate("/");
     });
     setInputs({ username: "", password: "" });

@@ -1,9 +1,10 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
 import Cookies from "js-cookie";
+import type { AuthResponse } from "../api/interfaces";
 
 interface IAuthContext {
   isAuth: boolean;
-  login: (token: string) => void;
+  login: (data: AuthResponse) => void;
   logout: () => void;
 }
 
@@ -16,9 +17,10 @@ export function useAuth() {
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isAuth, setIsAuth] = useState(() => !!Cookies.get("token") || false);
 
-  const login = (token: string) => {
+  const login = (data: AuthResponse) => {
     setIsAuth(true);
-    Cookies.set("token", token);
+    Cookies.set("token", data.access_token);
+    Cookies.set("refresh_token", data.refresh_token);
   };
 
   const logout = () => {

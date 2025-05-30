@@ -14,7 +14,6 @@ const Sidebar = () => {
   useEffect(() => {
     fetchMe();
   }, []);
-  console.log("meData", meData);
 
   return (
     <div>
