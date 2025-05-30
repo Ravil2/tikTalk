@@ -7,7 +7,6 @@ export const instance = axios.create({
   headers: { Authorization: `Bearer ${Cookies.get("token")}` },
 });
 
-
 export const ProfilesAPI = {
   getProfiles() {
     return instance
